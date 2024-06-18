@@ -22,7 +22,7 @@ if [ $? -eq 0 ]; then
         if [ $? -eq 0 ]; then
             echo "Requirements installed. Executing Python script..."
             # Execute the Python file
-            python your_script.py
+            python soundboard.py
         else
             echo "Failed to install requirements. Not executing Python script."
         fi

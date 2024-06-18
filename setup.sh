@@ -5,6 +5,8 @@ cd /path/to/your/repo
 
 # Run git pull to update the repository
 git pull
+# need to wait or changes might not apply
+wait 1
 
 # Check if the git pull was successful
 if [ $? -eq 0 ]; then

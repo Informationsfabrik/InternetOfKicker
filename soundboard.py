@@ -4,7 +4,7 @@ from pynput import keyboard
 # Initialize Pygame
 pygame.init()
 
-pygame.mixer.Sound('sounds/Song2.mp3')
+pygame.mixer.Sound('sounds/Song2.mp3').play()
 # Define a dictionary to map keys to sounds
 sound_mapping = {
     'a': 'sounds/test.mp3',

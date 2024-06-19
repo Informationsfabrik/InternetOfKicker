@@ -7,15 +7,17 @@ pygame.init()
 pygame.mixer.Sound('sounds/Song2.mp3').play()
 # Define a dictionary to map keys to sounds
 sound_mapping = {
-    'a': 'sounds/test.mp3',
-    # 'b': 'sound_b.wav',
-    # 'c': 'sound_c.wav'
+    'w': 'sounds/Freundschaftsspiel.mp3',
+    'a': 'sounds/geschenktesTor.mp3',
+    's': 'sounds/Verteidigung.mp3',
+    'd': 'sounds/Pfostentor.mp3',
 }
 # Function to play a sound based on the key press
 def play_sound(key):
     try:
         # Convert the key to a character and find the corresponding sound
         k = key.char
+        print(k)
         sound_file = sound_mapping.get(k)
         if sound_file:
             # Load and play the sound
@@ -27,6 +29,7 @@ def play_sound(key):
 
 # Listener for keyboard key press events
 def on_press(key):
+    # print(key.char)
     play_sound(key)
 
 # Create a keyboard listener

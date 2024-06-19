@@ -4,7 +4,7 @@
 # within it. You will need to rerun the script.
 
 # Navigate to the directory where your git repository is located
-cd /path/to/your/repo
+cd "$(dirname "$0")"
 
 # Run git pull to update the repository
 git pull

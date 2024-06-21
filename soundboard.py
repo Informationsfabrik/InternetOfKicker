@@ -4,13 +4,14 @@ from pynput import keyboard
 # Initialize Pygame
 pygame.init()
 
-pygame.mixer.Sound('sounds/Song2.mp3').play()
+pygame.mixer.Sound('sounds/ea_sports.mp3').play()
 # Define a dictionary to map keys to sounds
 sound_mapping = {
     'w': 'sounds/Freundschaftsspiel.mp3',
     'a': 'sounds/geschenktesTor.mp3',
     's': 'sounds/Verteidigung.mp3',
     'd': 'sounds/Pfostentor.mp3',
+    'r': 'sounds/suiiiiii.mp3'
 }
 # Function to play a sound based on the key press
 def play_sound(key):

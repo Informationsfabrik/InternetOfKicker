@@ -22,9 +22,9 @@ class Goal:
 
 
 class Storage:
-    def __init__(self, endpoint="https://rmn-rpi-office.documents.azure.com:443/"):
+    def __init__(self):
         load_dotenv()
-        self.client = CosmosClient(url=endpoint, credential=os.environ.get("FEED_KEY"))
+        self.client = CosmosClient(url=os.environ.get("DB_URL"), credential=os.environ.get("FEED_KEY"))
         self.database = self.client.get_database_client("kicker_statistik")
         self.container = self.database.get_container_client("kicker_statistik")
 

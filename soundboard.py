@@ -11,7 +11,8 @@ sound_mapping = {
     'a': 'sounds/geschenktesTor.mp3',
     's': 'sounds/Verteidigung.mp3',
     'd': 'sounds/Pfostentor.mp3',
-    'r': 'sounds/suiiiiii.mp3'
+    'r': 'sounds/suiiiiii.mp3',
+    'm': 'sounds/ankara-messi-sound-effect-made-with-Voicemod.mp3'
 }
 # Function to play a sound based on the key press
 def play_sound(key):

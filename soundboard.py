@@ -22,9 +22,17 @@ sound_mapping = {
 }
 
 if os.path.isfile(os.getcwd()+"/.env"):
-    storage = Storage()
+    try:
+        storage = Storage()
+    except:
+        pygame.mixer.Sound('sounds/windoof_error.mp3').play()
+        pygame.mixer.Sound('sounds/windoof_error.mp3').play()
+        pygame.mixer.Sound('sounds/windoof_error.mp3').play()
+        storage = None
+        print("WARNING: Error connecting to db. Running as soundboard only. Goals are not logged in db.")
+
 else:
-    print("WARNING: .env not found. Running as soundboard only. Goals are not logged in dbeeeer.")
+    print("WARNING: .env not found. Running as soundboard only. Goals are not logged in db.")
     storage = None
 
 

@@ -1,2 +1,5 @@
 # InternetOfKicker
-Taking our Kicker Table to the digital age.
+Taking our kicker table to the Internet of Things.
+
+# Info
+If three Windows errors are heard at startup, connection to db failed...

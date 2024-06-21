@@ -7,16 +7,21 @@ from db_connection import Goal, Storage
 # Initialize Pygame
 pygame.init()
 
-# pygame.mixer.Sound('sounds/Song2.mp3').play()
+pygame.mixer.Sound('sounds/ea_sports.mp3').play()
 # Define a dictionary to map keys to sounds
 sound_mapping = {
     'w': 'sounds/Freundschaftsspiel.mp3',
     'a': 'sounds/geschenktesTor.mp3',
     's': 'sounds/Verteidigung.mp3',
     'd': 'sounds/Pfostentor.mp3',
+    'r': 'sounds/suiiiiii.mp3',
+    'm': 'sounds/ankara-messi-sound-effect-made-with-Voicemod.mp3',
+    't': 'sounds/wah-wah-sad-trombone-6347.mp3'
 }
 
 storage = Storage()
+
+
 # Function to play a sound based on the key press
 def play_sound(key):
     try:
@@ -30,16 +35,20 @@ def play_sound(key):
             sound.play()
     except AttributeError:
         # Handle special keys (e.g., shift, ctrl) by ignoring them
+        match key:
+            case Key.left:
+                goal = Goal("blue")
+            case Key.right:
+                goal = Goal("red")
+            case _:
+                return
+        storage.save_goal(goal)
         pass
 
 # Listener for keyboard key press events
 def on_press(key):
     # print(key.char)
-    # play_sound(key)
-    if key == Key.space:
-        goal = Goal("blue")
-        storage.save_goal(goal)
-
+    play_sound(key)
 
 # Create a keyboard listener
 listener = keyboard.Listener(on_press=on_press)

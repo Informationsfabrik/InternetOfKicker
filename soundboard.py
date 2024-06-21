@@ -1,3 +1,4 @@
+import os,sys
 import pygame
 from pynput import keyboard
 from pynput.keyboard import Key
@@ -17,10 +18,14 @@ sound_mapping = {
     'r': 'sounds/suiiiiii.mp3',
     'm': 'sounds/ankara-messi-sound-effect-made-with-Voicemod.mp3',
     't': 'sounds/wah-wah-sad-trombone-6347.mp3',
-    'e': 'windoof_error.mp3'
+    'e': 'sounds/windoof_error.mp3'
 }
 
-storage = Storage()
+if os.path.isfile(os.getcwd()+"/.env"):
+    storage = Storage()
+else:
+    print("WARNING: .env not found. Running as soundboard only. Goals are not logged in dbeeeer.")
+    storage = None
 
 
 # Function to play a sound based on the key press
@@ -43,7 +48,8 @@ def play_sound(key):
                 goal = Goal("red")
             case _:
                 return
-        storage.save_goal(goal)
+        if storage:
+            storage.save_goal(goal)
         pygame.mixer.Sound(sound_mapping["a"]).play()
 
 

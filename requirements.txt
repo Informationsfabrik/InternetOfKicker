@@ -1,2 +1,5 @@
 pynput==1.7.7
 pygame==2.5.2
+azure-cosmos==4.7.0
+azure-identity==1.17.0
+python-dotenv==1.0.1

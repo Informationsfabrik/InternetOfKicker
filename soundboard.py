@@ -43,8 +43,8 @@ def play_sound(key):
             case _:
                 return
         storage.save_goal(goal)
-        pygame.mixer.Sound(sound_mapping["a"])
-        pass
+        pygame.mixer.Sound(sound_mapping["a"]).play()
+
 
 # Listener for keyboard key press events
 def on_press(key):

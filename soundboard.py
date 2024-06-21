@@ -16,7 +16,8 @@ sound_mapping = {
     'd': 'sounds/Pfostentor.mp3',
     'r': 'sounds/suiiiiii.mp3',
     'm': 'sounds/ankara-messi-sound-effect-made-with-Voicemod.mp3',
-    't': 'sounds/wah-wah-sad-trombone-6347.mp3'
+    't': 'sounds/wah-wah-sad-trombone-6347.mp3',
+    'e': 'windoof_error.mp3'
 }
 
 storage = Storage()

@@ -1,4 +1,5 @@
 import os
+import random
 from time import sleep
 import pygame
 from pynput import keyboard
@@ -19,14 +20,16 @@ class Soundboard:
             'f': 'sounds/Freundschaftsspiel.mp3',
             'g': 'sounds/geschenktesTor.mp3',
             'v': 'sounds/Verteidigung.mp3',
-            Key.up: 'sounds/Song2.mp3',
             'p': 'sounds/Pfostentor.mp3',
             'r': 'sounds/suiiiiii.mp3',
             'm': 'sounds/ankara-messi-sound-effect-made-with-Voicemod.mp3',
-            Key.down: 'sounds/wah-wah-sad-trombone-6347.mp3',
-            'e': 'sounds/windoof_error.mp3'
+            'd': 'sounds/wah-wah-sad-trombone-6347.mp3',
+            'e': 'sounds/windoof_error.mp3',
+            '2': 'sounds/Song2.mp3'
         }
-
+        for key in self.sound_mapping.keys():
+            if type(key) == Key:
+                raise ValueError(str(key)+ " is a reserved key")
         self.storage = self.setup_storage()
         self.play_initial_sound()
         self.listener = keyboard.Listener(on_press=self.on_press)
@@ -54,6 +57,10 @@ class Soundboard:
         self.play_sound_file('sounds/windoof_error.mp3')
         sleep(7) #need to sleep to avoid cancelling the sound
 
+    def play_random_sound(self):
+        key = random.choice(list(self.sound_mapping.keys()))
+        self.play_sound_file(self.sound_mapping[key])
+
     def play_sound_file(self, sound_file):
         self.stop_current_sound()
         sound = pygame.mixer.Sound(sound_file)
@@ -79,6 +86,10 @@ class Soundboard:
             case Key.right:
                 goal = Goal("red")
                 self.play_sound_file(self.sound_mapping["m"])
+            case Key.down:
+                self.play_random_sound()
+            case Key.up:
+                self.play_sound_file(self.sound_mapping["2"])
             case _:
                 return
 

@@ -24,7 +24,9 @@ class Goal:
 class Storage:
     def __init__(self):
         load_dotenv()
-        self.client = CosmosClient(url=os.environ.get("DB_URL"), credential=os.environ.get("FEED_KEY"))
+        ENDPOINT = os.environ["COSMOS_ENDPOINT"]
+        KEY = os.environ["COSMOS_KEY"]
+        self.client = CosmosClient(url=ENDPOINT, credential=KEY) 
         self.database = self.client.get_database_client("kicker_statistik")
         self.container = self.database.get_container_client("kicker_statistik")
 

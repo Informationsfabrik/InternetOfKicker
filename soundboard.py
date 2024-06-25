@@ -79,6 +79,7 @@ class Soundboard:
         if sound_file:
             self.play_sound_file(sound_file)
 
+        goal = None
         match key:
             case Key.left:
                 goal = Goal("blue")
@@ -93,7 +94,7 @@ class Soundboard:
             case _:
                 return
 
-        if self.storage:
+        if self.storage and goal:
             self.storage.save_goal(goal)
 
     def on_press(self, key):
